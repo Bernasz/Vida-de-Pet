@@ -1,10 +1,10 @@
-
 body {
     font-family: Arial, sans-serif;
     background: url('imagens/cachorro4.jpg') no-repeat center center fixed;
     background-size: cover;
     background-blend-mode: overlay;
-    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com opacidade para sobrepor a imagem */
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo preto com opacidade para sobrepor a imagem */
     margin: 0;
     padding: 0;
     display: flex;
@@ -14,7 +14,7 @@ body {
 }
 
 
-.form-container{
+.form-container {
     background-color: whitesmoke;
     padding: 20px;
     border-radius: 10px;
@@ -30,7 +30,7 @@ form label {
     margin-bottom: 6px;
     font-weight: bold;
 
-} 
+}
 
 form input[type="text"],
 form select,
