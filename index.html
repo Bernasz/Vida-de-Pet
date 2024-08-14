@@ -1,61 +1,71 @@
 <!DOCTYPE html>
 
+<html lang="en">
+
 <head>
-    <title>Vida de Pet Santiago</title>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida de Pet Santiago Agendamento</title>
     <script src="script.js" defer   ></script>
     <link rel="stylesheet" href="vidadepet.css">
 </head>
 
 <body>
 
-    <form>
-        Nome: <br>
-        <input type="text" name="name"> <br>
-        <br>
+    <div class="form-container">
+        <form>
+            <label for="name">Nome:</label>
+            <input type="text" id = "name" name="name">
 
-        Telefone: <br>
-        <input type="text" name="cel"> <br>
-        <br>
+            <br>
+            
+            <label for="cel">Telefone: </label>
+            <input type="text" id ="cel" name="cel"> 
 
-        Tipo de Serviço: <br>
-        <select name="serv">
-            <option>Banho</option>
-            <option>Banho + Tosa</option>
-            <option>Hidratação</option>
-            <option>Serviço Completo</option>
-        </select>
+            <br>
+
+            <label for="serv">Tipo de Serviço: </label>
+            <select id= "serv" name="serv">
+                <option>Banho</option>
+                <option>Banho + Tosa</option>
+                <option>Hidratação</option>
+                <option>Serviço Completo</option>
+            </select>
+            
+            <br>
+            
+            <label for ="tam">Tamanho do Pet:</label>
+            <select id= "tam" name="tam">
+                <option>Pequeno</option>
+                <option>Médio</option>
+                <option>Grande</option>
+            </select>
+
+            <br>
+
+            <label for="pet">Qual tipo de Pet? </label>
+            <select name="pet" id="opçaoPet">
+                <option value="Cachorro">Cachorro</option>
+                <option value ="Gato">Gato</option>
+                <option value="Outro">Outro(Especificar):</option>
+            </select>
+
+            <p><div id="containerInput"></div></p>
+
+            <label for="petn">Nome do Pet: </label>
+            <input type="text" id="petn" name="petn">
+
+            <br>
+
+            <label for="obs">Observações:</label> 
+            <textarea id="obs" name="obs"></textarea>
+
+            <br>
+
+            <input type="submit" value ="Agendar">
+        </form>
+    </div>
     
-        <br>
-        
-        Tamanho do Pet <br>
-        <select name="tam">
-            <option>Pequeno</option>
-            <option>Médio</option>
-            <option>Grande</option>
-        </select>
-
-        <br>
-
-        Qual tipo de Pet? <br>
-        <select name="pet" id="opcaoPet">
-            <option value="Cachorro">Cachorro</option>
-            <option value ="Gato">Gato</option>
-            <option value="Outro">Outro(Especificar):</option>
-        </select>
-
-        <p><div id="containerInput"></div></p>
-
-        Nome do Pet: <br>
-        <input type="text" name="petn">
-        <br>
-
-        Observações: <br>
-        <textarea></textarea>
-
-        <br>
-
-        <input type="submit" value ="Agendar">
-    </form>
-
 </body>
+
+</html>
