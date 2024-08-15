@@ -21,3 +21,25 @@ opcaoPet.addEventListener('change', function caixaTexto() { //Função é execut
 
 }
 )
+
+
+//Verificação de Dados após Submit
+const campoNome = document.getElementById("name")
+const nameLabel = document.getElementById("nameLabel")
+const campoCel = document.getElementById("cel")
+const celLabel = document.getElementById("celLabel")
+
+function verificaSubmit() {
+    if (campoNome.value == '' || campoNome.value == "Este Campo é Obrigatório") {
+        campoNome.placeholder = "Este Campo é Obrigatório"
+        campoNome.style.borderColor = "#ff0000"
+        nameLabel.style.color = "#ff0000"
+    }
+
+    if (campoCel.value.length < 11 || campoCel.value == "Insira um telefone válido") {
+        campoCel.placeholder = "Insira um telefone válido"
+        campoCel.style.borderColor = "#ff0000"
+        celLabel.style.color = "#ff0000"
+    }
+
+}
