@@ -53,7 +53,7 @@ form textarea {
     height: 100px;
     resize: both;
     transition: all 0.3s ease;
-
+    resize: none;
 }
 
 form input[type="button"] {
