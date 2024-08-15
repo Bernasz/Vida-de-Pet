@@ -80,3 +80,12 @@ input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
+
+b {
+    color: red;
+}
+
+#opcional {
+    font-size: 0.7em;
+    color: gray;
+}

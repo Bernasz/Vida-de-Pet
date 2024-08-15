@@ -14,17 +14,17 @@
 
     <div class="form-container">
         <form>
-            <label for="name" id="nameLabel">Nome Completo:</label>
+            <label for="name" id="nameLabel">Nome Completo: <b>*</b></label>
             <input type="text" id="name" name="name">
 
             <br>
 
-            <label for="cel" id="celLabel">Telefone: </label>
+            <label for="cel" id="celLabel">Telefone: <b>*</b></label>
             <input type="number" id="cel" name="cel" value=55>
 
             <br>
 
-            <label for="serv">Tipo de Serviço: </label>
+            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
             <select id="serv" name="serv">
                 <option value="Selecione">Selecione</option>
                 <option>Banho</option>
@@ -35,7 +35,7 @@
 
             <br>
 
-            <label for="tam">Tamanho do Pet:</label>
+            <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
             <select id="tam" name="tam">
                 <option value="Selecione">Selecione</option>
                 <option>Pequeno</option>
@@ -45,7 +45,7 @@
 
             <br>
 
-            <label for="pet">Qual tipo de Pet? </label>
+            <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
             <select name="pet" id="opcaoPet">
                 <option value="Selecione">Selecione</option>
                 <option value="Cachorro">Cachorro</option>
@@ -55,12 +55,12 @@
 
             <div id="containerInput"></div>
 
-            <label for="petn">Nome do Pet: </label>
+            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
             <input type="text" id="petn" name="petn">
 
             <br>
 
-            <label for="obs">Observações:</label>
+            <label for="obs">Observações: <b id="opcional">(opcional)</b></label>
             <textarea id="obs" name="obs"></textarea>
 
             <br>
