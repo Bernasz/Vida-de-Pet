@@ -1,103 +1,119 @@
-//Adiciona textbox ao selecionar a opção "Outro"
+// Adiciona textbox ao selecionar a opção "Outro"
+const opcaoPet = document.getElementById("opcaoPet");
+const containerInput = document.getElementById("containerInput");
 
-//Variaveis para selecionar os elementos do HTML
-const opcaoPet = document.getElementById("opcaoPet")
-const containerInput = document.getElementById("containerInput")
+opcaoPet.addEventListener('change', function caixaTexto() {
+    containerInput.innerHTML = ''; // Limpa o container
 
-opcaoPet.addEventListener('change', function caixaTexto() { //Função é executada quando o item do Select é alterado
+    if (this.value === "Outro") {
+        const inputTxt = document.createElement("input");
+        inputTxt.type = "text";
+        inputTxt.placeholder = "Especifique";
+        inputTxt.id = "inputOutra";
 
-    containerInput.innerHTML = ''
-
-    if (this.value === "Outro") //Se o valor selecionado for "Outro", o bloco abaixo é executado
-    {
-        //Cria o Input de Texto
-        const inputTxt = document.createElement("input")
-        inputTxt.type = "text"
-        inputTxt.placeholder = "Especifique"
-        inputTxt.id = "inputOutra"
-
-        containerInput.appendChild(inputTxt) //Exibe o Input na Tela do Usuário
-
+        containerInput.appendChild(inputTxt); // Adiciona o input de texto
     }
-}
-)
+});
 
-//Verificação de Dados após Submit
+// Adiciona uma nova caixa de seleção de serviços ao clicar no botão "+"
+const servContainer = document.getElementById('servContainer');
+const addServiceButton = document.getElementById('addService');
 
-//Variaveis para selecionar os elementos do HTML
-const campoNome = document.getElementById("name")
-const nameLabel = document.getElementById("nameLabel")
-const campoCel = document.getElementById("cel")
-const celLabel = document.getElementById("celLabel")
-const campoServ = document.getElementById("serv")
-const servLabel = document.getElementById("servLabel")
-const campoTam = document.getElementById("tam")
-const tamLabel = document.getElementById("tamLabel")
-const tipoLabel = document.getElementById("tipoLabel")
-const campoPetn = document.getElementById("petn")
-const petnLabel = document.getElementById("petnLabel")
+addServiceButton.addEventListener('click', function() {
+    const newServiceSelect = document.createElement('select');
+    newServiceSelect.name = 'serv';
+    newServiceSelect.classList.add('service-select');
+    newServiceSelect.innerHTML = `
+        <option value="Selecione">Selecione</option>
+        <option>Banho</option>
+        <option>Banho + Tosa</option>
+        <option>Hidratação</option>
+        <option>Serviço Completo</option>
+    `;
 
-function verificaSubmit() {  //Função é executada ao clicar em Agendar
+    // Adiciona a nova caixa de seleção antes do botão "+"
+    servContainer.insertBefore(newServiceSelect, addServiceButton);
+});
 
-    if (campoNome.value == '') { //Verifica Dados Campo Nome
-        campoNome.placeholder = "Este Campo é Obrigatório"
-        campoNome.style.borderColor = "#ff0000"
-        nameLabel.style.color = "#ff0000"
+// Verificação de Dados após Submit
+const campoNome = document.getElementById("name");
+const nameLabel = document.getElementById("nameLabel");
+const campoCel = document.getElementById("cel");
+const celLabel = document.getElementById("celLabel");
+const servLabel = document.getElementById("servLabel");
+const campoTam = document.getElementById("tam");
+const tamLabel = document.getElementById("tamLabel");
+const tipoLabel = document.getElementById("tipoLabel");
+const campoPetn = document.getElementById("petn");
+const petnLabel = document.getElementById("petnLabel");
+
+function verificaSubmit() {
+    let formValido = true;
+
+    if (campoNome.value == '') {
+        campoNome.placeholder = "Este Campo é Obrigatório";
+        campoNome.style.borderColor = "#ff0000";
+        nameLabel.style.color = "#ff0000";
+        formValido = false;
     } else {
-        campoNome.style = null
-        nameLabel.style = null
+        campoNome.style = null;
+        nameLabel.style = null;
     }
 
-    if (campoCel.value.length != 11) { //Verifica Dados Campo Telefone
-        campoCel.value = ''
-        campoCel.placeholder = "Insira um telefone válido"
-        campoCel.style.borderColor = "#ff0000"
-        celLabel.style.color = "#ff0000"
+    if (campoCel.value.length != 11) {
+        campoCel.value = '';
+        campoCel.placeholder = "Insira um telefone válido";
+        campoCel.style.borderColor = "#ff0000";
+        celLabel.style.color = "#ff0000";
+        formValido = false;
     } else {
-        campoCel.style = null
-        celLabel.style = null
+        campoCel.style = null;
+        celLabel.style = null;
     }
 
-    if (campoServ.value === "Selecione") { //Verifica Dados Campo Tipo de Serviço
-        campoServ.style.borderColor = "#ff0000"
-        servLabel.style.color = "#ff0000"
+    const servicos = document.querySelectorAll('.service-select');
+    servicos.forEach(servico => {
+        if (servico.value === "Selecione") {
+            servico.style.borderColor = "#ff0000";
+            servLabel.style.color = "#ff0000";
+            formValido = false;
+        } else {
+            servico.style = null;
+            servLabel.style = null;
+        }
+    });
+
+    if (campoTam.value === "Selecione") {
+        campoTam.style.borderColor = "#ff0000";
+        tamLabel.style.color = "#ff0000";
+        formValido = false;
     } else {
-        campoServ.style = null
-        servLabel.style = null
+        campoTam.style = null;
+        tamLabel.style = null;
     }
 
-    if (campoTam.value === "Selecione") { //Verifica Dados Campo Tamanho do Pet
-        campoTam.style.borderColor = "#ff0000"
-        tamLabel.style.color = "#ff0000"
+    if (opcaoPet.value === "Selecione") {
+        opcaoPet.style.borderColor = "#ff0000";
+        tipoLabel.style.color = "#ff0000";
+        formValido = false;
     } else {
-        campoTam.style = null
-        tamLabel.style = null
+        opcaoPet.style = null;
+        tipoLabel.style = null;
     }
 
-    if (opcaoPet.value === "Selecione") { //Verifica Dados Campo Tipo do Pet
-        opcaoPet.style.borderColor = "#ff0000"
-        tipoLabel.style.color = "#ff0000"
+    if (campoPetn.value == '') {
+        campoPetn.placeholder = "Este Campo é Obrigatório";
+        campoPetn.style.borderColor = "#ff0000";
+        petnLabel.style.color = "#ff0000";
+        formValido = false;
     } else {
-        opcaoPet.style = null
-        tipoLabel.style = null
+        campoPetn.style = null;
+        petnLabel.style = null;
     }
 
-    if (campoPetn.value == "") { //Verifica Dados Campo Nome do Pet
-        campoPetn.style.borderColor = "#ff0000"
-        campoPetn.placeholder = "Insira o Nome do Pet"
-        petnLabel.style.color = "#ff0000"
-    } else {
-        campoPetn.style = null
-        petnLabel.style = null
+    // Submeter o formulário se válido
+    if (formValido) {
+        alert('Formulário enviado com sucesso!');
+        // Aqui você pode adicionar a lógica para enviar o formulário
     }
-
-    if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
-        document.getElementById("inputOutra").style.borderColor = "#ff0000"
-        document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
-        tipoLabel.style.color = "#ff0000"
-    } else {
-        document.getElementById("inputOutra").style = null
-        tipoLabel.style = null
-    }
-
 }

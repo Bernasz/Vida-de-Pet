@@ -1,7 +1,5 @@
 <!DOCTYPE html>
-
 <html lang="pt-br">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,9 +7,7 @@
     <script src="agend2.js" defer></script>
     <link rel="stylesheet" href="agend2.css">
 </head>
-
 <body>
-
     <div class="form-container">
         <form>
             <label for="name" id="nameLabel">Nome Completo: <b>*</b></label>
@@ -24,14 +20,19 @@
 
             <br>
 
-            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
-            <select id="serv" name="serv">
-                <option value="Selecione">Selecione</option>
-                <option>Banho</option>
-                <option>Banho + Tosa</option>
-                <option>Hidratação</option>
-                <option>Serviço Completo</option>
-            </select>
+            <div class="service-container">
+                <label for="serv">Tipo de Serviço: <b>*</b></label>
+                <div id="servContainer" class="service-container-content">
+                    <select id="serv" name="serv" class="service-select">
+                        <option value="Selecione">Selecione</option>
+                        <option>Banho</option>
+                        <option>Banho + Tosa</option>
+                        <option>Hidratação</option>
+                        <option>Serviço Completo</option>
+                    </select>
+                    <button type="button" id="addService">+</button>
+                </div>
+            </div>
 
             <br>
 
@@ -50,7 +51,7 @@
                 <option value="Selecione">Selecione</option>
                 <option value="Cachorro">Cachorro</option>
                 <option value="Gato">Gato</option>
-                <option value="Outro">Outro(Especificar):</option>
+                <option value="Outro">Outro (Especificar):</option>
             </select>
 
             <div id="containerInput"></div>
@@ -68,7 +69,5 @@
             <input type="button" value="Agendar" onclick="verificaSubmit()">
         </form>
     </div>
-
 </body>
-
 </html>
