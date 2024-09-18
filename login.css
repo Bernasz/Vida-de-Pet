@@ -8,112 +8,118 @@
     text-decoration: none;
 }
 
-body{
+body {
+    background: url('imagens/cachorro2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.7); /* Fundo preto com opacidade para sobrepor a imagem */
+    margin: 0;
+    padding: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-}
-
-img{
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    object-fit: cover;
-    z-index: -1;
+    height: 100vh;
 }
 
 .container {
-    width: 400px;
-    color: black;
-    padding: 30px 40px;
-    border-radius: 15px;
-    background-color: rgba(245, 245, 245, 0.88); 
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px; /* Ajustado para um tamanho mais próximo ao do formulário */
+    box-sizing: border-box;
 }
 
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: black;
+}
 
-.input-box{
+.input-box {
     position: relative;
     width: 100%;
-    height: 100%;
-    margin: 30px 0;
+    margin: 15px 0; /* Ajustado para dar um espaço uniforme */
 }
 
-.input-box input{
+.input-box input {
     width: 100%;
-    height: 100%;
     background: transparent;
-    border: none;
+    border: 2px solid #ccc; /* Alterado para combinar com o formulário */
     outline: none;
     border-radius: 5px;
     color: black;
-    border: 2px solid black;
     font-size: 16px;
     padding: 10px;
+    transition: border-color 0.3s ease;
 }
 
-.input-box i{
+.input-box i {
     position: absolute;
-    right: 20px;
+    right: 10px; /* Ajustado para estar mais alinhado com o formulário */
     top: 50%;
     transform: translateY(-50%);
     font-size: 20px;
+    color: black;
 }
 
-.remember{
+.input-box input:focus {
+    border-color: #7e3a51; /* Cor de borda ao focar, combinando com o botão do formulário */
+}
+
+.remember {
     display: flex;
     justify-content: space-between;
     font-size: 15px;
-    margin: -10px 0 15px;
+    margin: 10px 0; /* Ajustado para dar um espaço uniforme */
 }
 
-.remember a{
+.remember a {
     border-bottom: 2px solid transparent;
     color: black;
 }
 
-.remember a:hover{
-    /* border-bottom: 2px solid #fff; */
+.remember a:hover {
     color: grey;
 }
 
-.btn{
+.btn {
     width: 100%;
-    height: 40px;
+    padding: 10px;
     background: #7e3a51;
-    color: white;
+    color: #f2f2f2;
     border: none;
-    outline: none;
-    border-radius: 20px;
-    box-shadow: 0 0 20px #7e3a51;
-    font-size: 15px;
+    border-radius: 5px; /* Ajustado para combinar com o formulário */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    font-size: 18px;
     font-weight: 600;
-    transition: 1s;
+    transition: all 0.3s ease;
+    cursor: pointer;
     margin-top: 20px;
 }
 
-.btn:hover{
+.btn:hover {
     background: transparent;
     border: 2px solid #7e3a51;
     color: black;
-    transform: scale(1.1);
-    box-shadow: 0 0 20px #7e3a51;
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
 }
 
-.register{
+.register {
     font-size: 14px;
     margin-top: 20px;
     text-align: center;
 }
 
-.register p a{
+.register p a {
     font-weight: 600;
     color: black;
     font-size: 18px;
 }
 
-.register p a:hover{
+.register p a:hover {
     color: grey;
 }
