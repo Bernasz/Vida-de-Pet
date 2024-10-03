@@ -38,7 +38,7 @@ const cbxTosa = document.getElementById("tosa")
 const cbxCorteUnhas = document.getElementById("corteUnhas")
 const cbxHidratacao = document.getElementById("hidratacao")
 const cbxHigieneBucal = document.getElementById("higieneBucal")
-
+const servicoLabel = document.getElementsByClassName("servicoLabel")
 
 function verificaDados() {  //Função é executada ao clicar em Agendar
 
@@ -67,22 +67,25 @@ function verificaDados() {  //Função é executada ao clicar em Agendar
         petnLabel.style = null
     }
 
-    try {
-        if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
-            document.getElementById("inputOutra").style.borderColor = "#ff0000"
-            document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
-            tipoLabel.style.color = "#ff0000"
-        } else {
-            document.getElementById("inputOutra").style = null
-            tipoLabel.style = null
+    if (!cbxServicoCompleto.checked && !cbxTosa.checked && !cbxBanho.checked && !cbxCorteUnhas.checked && !cbxHidratacao.checked && !cbxHigieneBucal.checked){
+
+        for(let i = 0; i < servicoLabel.length; i++){
+            servicoLabel[i].style.color = "red"
         }
-    } catch(e){
-        
+    }
+    else{
+        for(let i = 0; i < servicoLabel.length; i++){
+            servicoLabel[i].style = null
+        }
     }
 
-    if (cbxBanho.checked) {
-        console.log("Marcado")
-    } else {
-        console.log("Não Marcado")
+    if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
+        document.getElementById("inputOutra").style.borderColor = "#ff0000"
+        document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
+        tipoLabel.style.color = "#ff0000"
+    } 
+    else {
+        document.getElementById("inputOutra").style = null
+        tipoLabel.style = null
     }
 }
