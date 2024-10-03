@@ -91,17 +91,24 @@ function verificaDados() {  //Função é executada ao clicar em Agendar
             document.getElementById("inputOutra").style = null
             tipoLabel.style = null
         }
-    } catch (e) {}
+    } catch (e) { }
 }
 
-function servCompleto(){
-    const checkboxes = [cbxBanho, cbxCorteUnhas, cbxHidratacao, cbxHigieneBucal, cbxTosa]
+const checkboxes = [cbxBanho, cbxCorteUnhas, cbxHidratacao, cbxHigieneBucal, cbxTosa]
 
-    for(let i = 0; i < checkboxes.length; i++){
+function servCompleto() {
+    for (let i = 0; i < checkboxes.length; i++) {
         checkboxes[i].checked = false
     }
 }
 
-function outroServ(){
+function outroServ() {
     cbxServicoCompleto.checked = false
+
+    if (cbxBanho.checked && cbxCorteUnhas.checked && cbxHidratacao.checked && cbxHigieneBucal.checked && cbxTosa.checked && !cbxServicoCompleto.checked) {
+        for (let i = 0; i < checkboxes.length; i++) {
+            checkboxes[i].checked = false
+        }
+        cbxServicoCompleto.checked = true
+    }
 }
