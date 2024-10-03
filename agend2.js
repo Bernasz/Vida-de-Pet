@@ -25,11 +25,6 @@ opcaoPet.addEventListener('change', function caixaTexto() { //Função é execut
 //Verificação de Dados após Submit
 
 //Variaveis para selecionar os elementos do HTML
-const campoNome = document.getElementById("name")
-const nameLabel = document.getElementById("nameLabel")
-const campoCel = document.getElementById("cel")
-const celLabel = document.getElementById("celLabel")
-const campoServ = document.getElementById("serv")
 const servLabel = document.getElementById("servLabel")
 const campoTam = document.getElementById("tam")
 const tamLabel = document.getElementById("tamLabel")
@@ -37,34 +32,15 @@ const tipoLabel = document.getElementById("tipoLabel")
 const campoPetn = document.getElementById("petn")
 const petnLabel = document.getElementById("petnLabel")
 
-function verificaSubmit() {  //Função é executada ao clicar em Agendar
+const cbxServicoCompleto = document.getElementById("servicoCompleto")
+const cbxBanho = document.getElementById("banho")
+const cbxTosa = document.getElementById("tosa")
+const cbxCorteUnhas = document.getElementById("corteUnhas")
+const cbxHidratacao = document.getElementById("hidratacao")
+const cbxHigieneBucal = document.getElementById("higieneBucal")
+const servicoLabel = document.getElementsByClassName("servicoLabel")
 
-    if (campoNome.value == '') { //Verifica Dados Campo Nome
-        campoNome.placeholder = "Este Campo é Obrigatório"
-        campoNome.style.borderColor = "#ff0000"
-        nameLabel.style.color = "#ff0000"
-    } else {
-        campoNome.style = null
-        nameLabel.style = null
-    }
-
-    if (campoCel.value.length != 11) { //Verifica Dados Campo Telefone
-        campoCel.value = ''
-        campoCel.placeholder = "Insira um telefone válido"
-        campoCel.style.borderColor = "#ff0000"
-        celLabel.style.color = "#ff0000"
-    } else {
-        campoCel.style = null
-        celLabel.style = null
-    }
-
-    if (campoServ.value === "Selecione") { //Verifica Dados Campo Tipo de Serviço
-        campoServ.style.borderColor = "#ff0000"
-        servLabel.style.color = "#ff0000"
-    } else {
-        campoServ.style = null
-        servLabel.style = null
-    }
+function verificaDados() {  //Função é executada ao clicar em Agendar
 
     if (campoTam.value === "Selecione") { //Verifica Dados Campo Tamanho do Pet
         campoTam.style.borderColor = "#ff0000"
@@ -91,13 +67,41 @@ function verificaSubmit() {  //Função é executada ao clicar em Agendar
         petnLabel.style = null
     }
 
-    if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
-        document.getElementById("inputOutra").style.borderColor = "#ff0000"
-        document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
-        tipoLabel.style.color = "#ff0000"
-    } else {
-        document.getElementById("inputOutra").style = null
-        tipoLabel.style = null
+    if (!cbxServicoCompleto.checked && !cbxTosa.checked && !cbxBanho.checked && !cbxCorteUnhas.checked && !cbxHidratacao.checked && !cbxHigieneBucal.checked) {
+
+        for (let i = 0; i < servicoLabel.length; i++) {
+            servicoLabel[i].style.color = "#ff0000"
+        }
+        servLabel.style.color = "#ff0000"
+    }
+    else {
+        for (let i = 0; i < servicoLabel.length; i++) {
+            servicoLabel[i].style = null
+        }
+        servLabel.style = null
     }
 
+    try {
+        if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
+            document.getElementById("inputOutra").style.borderColor = "#ff0000"
+            document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
+            tipoLabel.style.color = "#ff0000"
+        }
+        else {
+            document.getElementById("inputOutra").style = null
+            tipoLabel.style = null
+        }
+    } catch (e) {}
+}
+
+function servCompleto(){
+    const checkboxes = [cbxBanho, cbxCorteUnhas, cbxHidratacao, cbxHigieneBucal, cbxTosa]
+
+    for(let i = 0; i < checkboxes.length; i++){
+        checkboxes[i].checked = false
+    }
+}
+
+function outroServ(){
+    cbxServicoCompleto.checked = false
 }

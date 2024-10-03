@@ -14,26 +14,18 @@
 
     <div class="form-container">
         <form>
-            <label for="name" id="nameLabel">Nome Completo: <b>*</b></label>
-            <input type="text" id="name" name="name">
+            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
+            <input type="text" id="petn" name="petn">
 
-            <br>
-
-            <label for="cel" id="celLabel">Telefone: <b>*</b></label>
-            <input type="number" id="cel" name="cel" value=55>
-
-            <br>
-
-            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
-            <select id="serv" name="serv">
+            <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
+            <select name="pet" id="opcaoPet" onchange="caixaTexto()">
                 <option value="Selecione">Selecione</option>
-                <option>Banho</option>
-                <option>Banho + Tosa</option>
-                <option>Hidratação</option>
-                <option>Serviço Completo</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Outro">Outro(Especificar):</option>
             </select>
 
-            <br>
+            <div id="containerInput"></div>
 
             <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
             <select id="tam" name="tam">
@@ -43,29 +35,38 @@
                 <option>Grande</option>
             </select>
 
-            <br>
-
-            <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
-            <select name="pet" id="opcaoPet">
-                <option value="Selecione">Selecione</option>
-                <option value="Cachorro">Cachorro</option>
-                <option value="Gato">Gato</option>
-                <option value="Outro">Outro(Especificar):</option>
-            </select>
-
-            <div id="containerInput"></div>
-
-            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
-            <input type="text" id="petn" name="petn">
-
-            <br>
+            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
+            <div class="checkbox-container">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="servicoCompleto" onchange="servCompleto()">
+                    <label for="servicoCompleto" class="servicoLabel">Serviço Completo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="banho" onchange="outroServ()">
+                    <label for="banho" class="servicoLabel">Banho</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tosa" onchange="outroServ()">
+                    <label for="tosa" class="servicoLabel">Tosa</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="corteUnhas" onchange="outroServ()">
+                    <label for="corteUnhas" class="servicoLabel">Corte de Unhas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hidratacao" onchange="outroServ()">
+                    <label for="hidratacao" class="servicoLabel">Hidratação</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="higieneBucal" onchange="outroServ()">
+                    <label for="higieneBucal" class="servicoLabel">Higiene Bucal</label>
+                </div>
+            </div>
 
             <label for="obs">Observações: <b id="opcional">(opcional)</b></label>
             <textarea id="obs" name="obs"></textarea>
 
-            <br>
-            <p id="termo">*Ao clicar em agendar, você declara que os dados fornecidos são verdadeiros.</p>
-            <input type="button" value="Agendar" onclick="verificaSubmit()">
+            <input type="button" value="Agendar" id="botaoAgenda" onclick="verificaDados()">
         </form>
     </div>
 
