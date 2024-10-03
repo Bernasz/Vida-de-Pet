@@ -14,36 +14,8 @@
 
     <div class="form-container">
         <form>
-            <label for="name" id="nameLabel">Nome Completo: <b>*</b></label>
-            <input type="text" id="name" name="name">
-
-            <br>
-
-            <label for="cel" id="celLabel">Telefone: <b>*</b></label>
-            <input type="number" id="cel" name="cel" value=55>
-
-            <br>
-
-            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
-            <select id="serv" name="serv">
-                <option value="Selecione">Selecione</option>
-                <option>Banho</option>
-                <option>Banho + Tosa</option>
-                <option>Hidratação</option>
-                <option>Serviço Completo</option>
-            </select>
-
-            <br>
-
-            <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
-            <select id="tam" name="tam">
-                <option value="Selecione">Selecione</option>
-                <option>Pequeno</option>
-                <option>Médio</option>
-                <option>Grande</option>
-            </select>
-
-            <br>
+            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
+            <input type="text" id="petn" name="petn">
 
             <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
             <select name="pet" id="opcaoPet">
@@ -54,18 +26,50 @@
             </select>
 
             <div id="containerInput"></div>
+            <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
+            <select id="tam" name="tam">
+                <option value="Selecione">Selecione</option>
+                <option>Pequeno</option>
+                <option>Médio</option>
+                <option>Grande</option>
+            </select>
 
-            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
-            <input type="text" id="petn" name="petn">
+            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
+            <div class="checkbox-container">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="servicoCompleto" value="servicoCompleto">
+                    <label for="servicoCompleto">Serviço Completo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="banho" value="banho">
+                    <label for="banho">Banho</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tosa" value="tosa">
+                    <label for="tosa">Tosa</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="corteUnhas" value="corteUnhas">
+                    <label for="corteUnhas">Corte de Unhas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hidratacao" value="hidratacao">
+                    <label for="hidratacao">Hidratação</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="higieneBucal" value="higieneBucal">
+                    <label for="higieneBucal">Higiene Bucal</label>
+                </div>
+            </div>
 
-            <br>
+
+
+            <div id="containerBtnAddOpcao"></div>
 
             <label for="obs">Observações: <b id="opcional">(opcional)</b></label>
             <textarea id="obs" name="obs"></textarea>
 
-            <br>
-            <p id="termo">*Ao clicar em agendar, você declara que os dados fornecidos são verdadeiros.</p>
-            <input type="button" value="Agendar" onclick="verificaSubmit()">
+            <input type="button" value="Agendar" id="botaoAgenda" onclick="verificaProximo()">
         </form>
     </div>
 

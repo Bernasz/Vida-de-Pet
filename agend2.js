@@ -25,10 +25,6 @@ opcaoPet.addEventListener('change', function caixaTexto() { //Função é execut
 //Verificação de Dados após Submit
 
 //Variaveis para selecionar os elementos do HTML
-const campoNome = document.getElementById("name")
-const nameLabel = document.getElementById("nameLabel")
-const campoCel = document.getElementById("cel")
-const celLabel = document.getElementById("celLabel")
 const campoServ = document.getElementById("serv")
 const servLabel = document.getElementById("servLabel")
 const campoTam = document.getElementById("tam")
@@ -37,26 +33,7 @@ const tipoLabel = document.getElementById("tipoLabel")
 const campoPetn = document.getElementById("petn")
 const petnLabel = document.getElementById("petnLabel")
 
-function verificaSubmit() {  //Função é executada ao clicar em Agendar
-
-    if (campoNome.value == '') { //Verifica Dados Campo Nome
-        campoNome.placeholder = "Este Campo é Obrigatório"
-        campoNome.style.borderColor = "#ff0000"
-        nameLabel.style.color = "#ff0000"
-    } else {
-        campoNome.style = null
-        nameLabel.style = null
-    }
-
-    if (campoCel.value.length != 11) { //Verifica Dados Campo Telefone
-        campoCel.value = ''
-        campoCel.placeholder = "Insira um telefone válido"
-        campoCel.style.borderColor = "#ff0000"
-        celLabel.style.color = "#ff0000"
-    } else {
-        campoCel.style = null
-        celLabel.style = null
-    }
+function verificaProximo() {  //Função é executada ao clicar em Agendar
 
     if (campoServ.value === "Selecione") { //Verifica Dados Campo Tipo de Serviço
         campoServ.style.borderColor = "#ff0000"
@@ -99,5 +76,58 @@ function verificaSubmit() {  //Função é executada ao clicar em Agendar
         document.getElementById("inputOutra").style = null
         tipoLabel.style = null
     }
-
 }
+
+//Altera o Valor Exibido Baseado no Serviço Selecionado
+
+const botaoAgenda = document.getElementById("botaoAgenda")
+
+function verificarValores() {
+    if (campoServ.value == "banhoTosa") {
+        botaoAgenda.value = "Agendar - R$100,00"
+    }
+    else if (campoServ.value == "corteUnhas") {
+        botaoAgenda.value = "Agendar - R$50,00"
+    }
+    else if (campoServ.value == "hidratacao") {
+        botaoAgenda.value = "Agendar - R$70,00"
+    }
+    else if (campoServ.value == "higieneBucal") {
+        botaoAgenda.value = "Agendar - R$80,00"
+    }
+    else if (campoServ.value == "tosaHigienica") {
+        botaoAgenda.value = "Agendar - R$90,00"
+    }
+    else if (campoServ.value == "servicoCompleto") {
+        botaoAgenda.value = "Agendar - R$200,00"
+    }
+    else {
+        botaoAgenda.value = "Agendar"
+    }
+}
+
+const containerBtnAddOpcao = document.getElementById("containerBtnAddOpcao")
+function criaBtnAddOpcao(){
+    if (campoServ.value != "Selecione") {
+        const btnAddOpcao = document.createElement("input")
+        btnAddOpcao.type = "button"
+        btnAddOpcao.value = "Adicionar Serviço"
+        btnAddOpcao.id = "btnAddOpcao"
+
+        containerBtnAddOpcao.appendChild(btnAddOpcao)
+    }
+
+    if (campoServ.value == "banhoTosa"){
+        document.body.style.backgroundImage = "url('imagens/lobisomem.jpg')"
+    }else{
+        document.body.style = null
+    }
+
+    btnAddOpcao.addEventListener("click", function () {
+
+        this.remove()
+    })
+}
+
+
+
