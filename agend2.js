@@ -67,25 +67,41 @@ function verificaDados() {  //Função é executada ao clicar em Agendar
         petnLabel.style = null
     }
 
-    if (!cbxServicoCompleto.checked && !cbxTosa.checked && !cbxBanho.checked && !cbxCorteUnhas.checked && !cbxHidratacao.checked && !cbxHigieneBucal.checked){
+    if (!cbxServicoCompleto.checked && !cbxTosa.checked && !cbxBanho.checked && !cbxCorteUnhas.checked && !cbxHidratacao.checked && !cbxHigieneBucal.checked) {
 
-        for(let i = 0; i < servicoLabel.length; i++){
-            servicoLabel[i].style.color = "red"
+        for (let i = 0; i < servicoLabel.length; i++) {
+            servicoLabel[i].style.color = "#ff0000"
         }
+        servLabel.style.color = "#ff0000"
     }
-    else{
-        for(let i = 0; i < servicoLabel.length; i++){
+    else {
+        for (let i = 0; i < servicoLabel.length; i++) {
             servicoLabel[i].style = null
         }
+        servLabel.style = null
     }
 
-    if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
-        document.getElementById("inputOutra").style.borderColor = "#ff0000"
-        document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
-        tipoLabel.style.color = "#ff0000"
-    } 
-    else {
-        document.getElementById("inputOutra").style = null
-        tipoLabel.style = null
+    try {
+        if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
+            document.getElementById("inputOutra").style.borderColor = "#ff0000"
+            document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
+            tipoLabel.style.color = "#ff0000"
+        }
+        else {
+            document.getElementById("inputOutra").style = null
+            tipoLabel.style = null
+        }
+    } catch (e) {}
+}
+
+function servCompleto(){
+    const checkboxes = [cbxBanho, cbxCorteUnhas, cbxHidratacao, cbxHigieneBucal, cbxTosa]
+
+    for(let i = 0; i < checkboxes.length; i++){
+        checkboxes[i].checked = false
     }
+}
+
+function outroServ(){
+    cbxServicoCompleto.checked = false
 }
