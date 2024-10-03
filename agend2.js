@@ -67,12 +67,22 @@ function verificaDados() {  //Função é executada ao clicar em Agendar
         petnLabel.style = null
     }
 
-    if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
-        document.getElementById("inputOutra").style.borderColor = "#ff0000"
-        document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
-        tipoLabel.style.color = "#ff0000"
+    try {
+        if (document.getElementById("inputOutra").value == '') { //Verifica Dados Campo Especifique Tipo de Pet
+            document.getElementById("inputOutra").style.borderColor = "#ff0000"
+            document.getElementById("inputOutra").placeholder = "Insira o Tipo do Pet"
+            tipoLabel.style.color = "#ff0000"
+        } else {
+            document.getElementById("inputOutra").style = null
+            tipoLabel.style = null
+        }
+    } catch(e){
+        
+    }
+
+    if (cbxBanho.checked) {
+        console.log("Marcado")
     } else {
-        document.getElementById("inputOutra").style = null
-        tipoLabel.style = null
+        console.log("Não Marcado")
     }
 }
