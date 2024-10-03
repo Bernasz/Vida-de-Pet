@@ -18,7 +18,7 @@
             <input type="text" id="petn" name="petn">
 
             <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
-            <select name="pet" id="opcaoPet">
+            <select name="pet" id="opcaoPet" onchange="caixaTexto()">
                 <option value="Selecione">Selecione</option>
                 <option value="Cachorro">Cachorro</option>
                 <option value="Gato">Gato</option>
@@ -26,6 +26,7 @@
             </select>
 
             <div id="containerInput"></div>
+
             <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
             <select id="tam" name="tam">
                 <option value="Selecione">Selecione</option>
@@ -37,39 +38,35 @@
             <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
             <div class="checkbox-container">
                 <div class="checkbox-item">
-                    <input type="checkbox" id="servicoCompleto" value="servicoCompleto">
+                    <input type="checkbox" id="servicoCompleto" class="cbxServ">
                     <label for="servicoCompleto">Serviço Completo</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="banho" value="banho">
+                    <input type="checkbox" id="banho" class="cbxServ">
                     <label for="banho">Banho</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="tosa" value="tosa">
+                    <input type="checkbox" id="tosa" class="cbxServ">
                     <label for="tosa">Tosa</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="corteUnhas" value="corteUnhas">
+                    <input type="checkbox" id="corteUnhas" class="cbxServ">
                     <label for="corteUnhas">Corte de Unhas</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="hidratacao" value="hidratacao">
+                    <input type="checkbox" id="hidratacao" class="cbxServ">
                     <label for="hidratacao">Hidratação</label>
                 </div>
                 <div class="checkbox-item">
-                    <input type="checkbox" id="higieneBucal" value="higieneBucal">
+                    <input type="checkbox" id="higieneBucal" class="cbxServ">
                     <label for="higieneBucal">Higiene Bucal</label>
                 </div>
             </div>
 
-
-
-            <div id="containerBtnAddOpcao"></div>
-
             <label for="obs">Observações: <b id="opcional">(opcional)</b></label>
             <textarea id="obs" name="obs"></textarea>
 
-            <input type="button" value="Agendar" id="botaoAgenda" onclick="verificaProximo()">
+            <input type="button" value="Agendar" id="botaoAgenda" onclick="verificaDados()">
         </form>
     </div>
 

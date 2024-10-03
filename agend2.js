@@ -25,7 +25,6 @@ opcaoPet.addEventListener('change', function caixaTexto() { //Função é execut
 //Verificação de Dados após Submit
 
 //Variaveis para selecionar os elementos do HTML
-const campoServ = document.getElementById("serv")
 const servLabel = document.getElementById("servLabel")
 const campoTam = document.getElementById("tam")
 const tamLabel = document.getElementById("tamLabel")
@@ -33,15 +32,15 @@ const tipoLabel = document.getElementById("tipoLabel")
 const campoPetn = document.getElementById("petn")
 const petnLabel = document.getElementById("petnLabel")
 
-function verificaProximo() {  //Função é executada ao clicar em Agendar
+const cbxServicoCompleto = document.getElementById("servicoCompleto")
+const cbxBanho = document.getElementById("banho")
+const cbxTosa = document.getElementById("tosa")
+const cbxCorteUnhas = document.getElementById("corteUnhas")
+const cbxHidratacao = document.getElementById("hidratacao")
+const cbxHigieneBucal = document.getElementById("higieneBucal")
 
-    if (campoServ.value === "Selecione") { //Verifica Dados Campo Tipo de Serviço
-        campoServ.style.borderColor = "#ff0000"
-        servLabel.style.color = "#ff0000"
-    } else {
-        campoServ.style = null
-        servLabel.style = null
-    }
+
+function verificaDados() {  //Função é executada ao clicar em Agendar
 
     if (campoTam.value === "Selecione") { //Verifica Dados Campo Tamanho do Pet
         campoTam.style.borderColor = "#ff0000"
@@ -77,57 +76,3 @@ function verificaProximo() {  //Função é executada ao clicar em Agendar
         tipoLabel.style = null
     }
 }
-
-//Altera o Valor Exibido Baseado no Serviço Selecionado
-
-const botaoAgenda = document.getElementById("botaoAgenda")
-
-function verificarValores() {
-    if (campoServ.value == "banhoTosa") {
-        botaoAgenda.value = "Agendar - R$100,00"
-    }
-    else if (campoServ.value == "corteUnhas") {
-        botaoAgenda.value = "Agendar - R$50,00"
-    }
-    else if (campoServ.value == "hidratacao") {
-        botaoAgenda.value = "Agendar - R$70,00"
-    }
-    else if (campoServ.value == "higieneBucal") {
-        botaoAgenda.value = "Agendar - R$80,00"
-    }
-    else if (campoServ.value == "tosaHigienica") {
-        botaoAgenda.value = "Agendar - R$90,00"
-    }
-    else if (campoServ.value == "servicoCompleto") {
-        botaoAgenda.value = "Agendar - R$200,00"
-    }
-    else {
-        botaoAgenda.value = "Agendar"
-    }
-}
-
-const containerBtnAddOpcao = document.getElementById("containerBtnAddOpcao")
-function criaBtnAddOpcao(){
-    if (campoServ.value != "Selecione") {
-        const btnAddOpcao = document.createElement("input")
-        btnAddOpcao.type = "button"
-        btnAddOpcao.value = "Adicionar Serviço"
-        btnAddOpcao.id = "btnAddOpcao"
-
-        containerBtnAddOpcao.appendChild(btnAddOpcao)
-    }
-
-    if (campoServ.value == "banhoTosa"){
-        document.body.style.backgroundImage = "url('imagens/lobisomem.jpg')"
-    }else{
-        document.body.style = null
-    }
-
-    btnAddOpcao.addEventListener("click", function () {
-
-        this.remove()
-    })
-}
-
-
-
