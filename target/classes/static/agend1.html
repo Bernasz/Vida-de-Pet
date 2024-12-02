@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida de Pet Santiago Agendamento</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="agend1.js" defer></script>
+    <link rel="stylesheet" href="agend1.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <form id="agendamentoForm">
+            <label for="dias" id="diasLabel">Selecione a Data: <b>*</b></label>
+            <input type="text" id="dias" name="dias" placeholder="DD/MM/AAAA" required>
+
+            <label for="hora" id="horaLabel">Selecione o Horário: <b>*</b></label>
+            <select id="hora" name="hora" required>
+                <option value="Selecione">Selecione</option>
+                <!-- Horários disponíveis serão adicionados aqui via JavaScript -->
+            </select>
+
+            <input type="button" value="Próximo" id="botaoProximo">
+        </form>
+    </div>
+
+</body>
+</html>

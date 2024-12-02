@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vida de Pet Santiago Agendamento</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="agend2.js" defer></script>
+    <link rel="stylesheet" href="agend2.css">
+</head>
+<body>
+
+    <div class="form-container">
+        <form>
+            <label for="petn" id="petnLabel">Nome do Pet: <b>*</b></label>
+            <input type="text" id="petn" name="petn">
+
+            <label for="pet" id="tipoLabel">Qual tipo de Pet? <b>*</b></label>
+            <select name="pet" id="opcaoPet">
+                <option value="Selecione">Selecione</option>
+                <option value="Cachorro">Cachorro</option>
+                <option value="Gato">Gato</option>
+                <option value="Outro">Outro(Especificar):</option>
+            </select>
+            
+            <div id="containerInput"></div>
+
+            <label for="tam" id="tamLabel">Tamanho do Pet: <b>*</b></label>
+            <select id="tam" name="tam">
+                <option value="Selecione">Selecione</option>
+                <option>Pequeno</option>
+                <option>Médio</option>
+                <option>Grande</option>
+            </select>
+
+            <label for="serv" id="servLabel">Tipo de Serviço: <b>*</b></label>
+            <div class="checkbox-container">
+                <div class="checkbox-item">
+                    <input type="checkbox" id="servicoCompleto">
+                    <label for="servicoCompleto" class="servicoLabel">Serviço Completo</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="banho">
+                    <label for="banho" class="servicoLabel">Banho</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="tosa">
+                    <label for="tosa" class="servicoLabel">Tosa</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="corteUnhas">
+                    <label for="corteUnhas" class="servicoLabel">Corte de Unhas</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="hidratacao">
+                    <label for="hidratacao" class="servicoLabel">Hidratação</label>
+                </div>
+                <div class="checkbox-item">
+                    <input type="checkbox" id="higieneBucal">
+                    <label for="higieneBucal" class="servicoLabel">Higiene Bucal</label>
+                </div>
+            </div>
+
+            <label for="obs">Observações: <b id="opcional">(opcional)</b></label>
+            <textarea id="obs" name="obs"></textarea>
+
+            <input type="button" value="Agendar" id="botaoAgenda" onclick="verificaProximo()">
+        </form>
+    </div>
+
+</body>
+</html>

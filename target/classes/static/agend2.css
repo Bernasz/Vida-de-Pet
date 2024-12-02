@@ -1,0 +1,161 @@
+body {
+    font-family: Arial, sans-serif;
+    background: url('imagens/cachorro2.jpg') no-repeat center center fixed;
+    background-size: cover;
+    background-blend-mode: overlay;
+    background-color: rgba(0, 0, 0, 0.7);
+    /* Fundo preto com opacidade para sobrepor a imagem */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.form-container {
+    background-color: whitesmoke;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 500px; /* Aumenta a largura máxima do container */
+    box-sizing: border-box;
+}
+
+form label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+form input[type="text"],
+form input[type="number"],
+form select,
+form textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: vertical;
+    transition: all 0.3s ease;
+}
+
+form textarea {
+    height: 100px;
+    resize: both;
+    transition: all 0.3s ease;
+    resize: none;
+}
+
+#botaoAgenda {
+    width: 100%;
+    padding: 10px;
+    background-color: #7e3a51;
+    color: #f2f2f2;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 18px;
+    transition: 0.3s ease;
+}
+
+#botaoAgenda:hover {
+    background-color: #ace2d4;
+    transform: scale(1.045);
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+b {
+    color: red;
+}
+
+#opcional {
+    font-size: 0.7em;
+    color: gray;
+}
+
+#termo {
+    color: gray;
+    font-size: 0.645em;
+}
+
+.checkbox-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 colunas */
+    gap: 10px; /* Espaçamento entre as checkboxes */
+    justify-items: center; /* Centraliza as colunas no container */
+    margin-bottom: 20px;
+}
+
+.checkbox-item {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    width: 120px; /* Mantém o tamanho da caixa */
+    height: 50px; /* Mantém a altura da caixa */
+    text-align: center;
+}
+
+.checkbox-item:hover {
+    background-color: #ececec;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+}
+
+.checkbox-item input[type="checkbox"] {
+    display: none;
+}
+
+.checkbox-item input[type="checkbox"] + label {
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+    flex: 1; /* Permite que o texto ocupe o máximo de espaço disponível */
+}
+
+.checkbox-item input[type="checkbox"] + label:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border: 2px solid #7e3a51;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+}
+
+.checkbox-item input[type="checkbox"]:checked + label:before {
+    background-color: #7e3a51;
+    border-color: #7e3a51;
+    background-size: 10px;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.checkbox-item label {
+    margin-left: 5px;
+    text-align: left; /* Alinha o texto à esquerda dentro da label */
+    width: 100%; /* Garante que o label tenha largura total da caixa */
+}
